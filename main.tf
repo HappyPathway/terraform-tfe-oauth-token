@@ -1,4 +1,4 @@
-data "external" "module_publish" {
+data "external" "oauth_tokens" {
   program = ["python", "${path.module}/scripts/oauth_tokens.py"]
 
   query = {
@@ -10,5 +10,5 @@ data "external" "module_publish" {
 
 
 output "oauth_token" {
-  value = "${data.external.module_publish.result["oauth_token"]}"
+  value = "${data.external.oauth_tokens.result["oauth_token"]}"
 }
